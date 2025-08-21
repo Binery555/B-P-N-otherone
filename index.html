@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Futures Assets Mockup (Mobile Size + Profits)</title>
+  <title>Futures Assets Mockup — with 6M Trend Profit Cards</title>
 
   <!-- Fonts & Icons -->
   <link href="https://db.onlinewebfonts.com/c/d05c19ccecf7003d248c60ffd6b5e8f7?family=Binance+PLEX" rel="stylesheet"/>
@@ -46,7 +46,7 @@
     .amount,.value,.rate{font-family:"Binance PLEX",sans-serif!important}
     button{cursor:pointer;border:none;background:transparent;font:inherit;color:inherit}
 
-    /* ===== Exchange / Wallet segmented control (much smaller) ===== */
+    /* ===== Exchange / Wallet segmented control (small) ===== */
     .top-toggle{
       position:relative;
       width:var(--seg-w);
@@ -133,31 +133,37 @@
     .empty-state p{font-size:12px;color:#A1A6B0;margin-bottom:12px}
     .empty-state .cta{background:#F3BA2F;color:#1E2128;font-size:12px;padding:8px 12px;border-radius:6px;display:inline-flex;align-items:center;gap:6px}
 
-    .trade-panel{background:transparent;border:none;border-radius:10px;padding:12px 0;margin:12px 0;transition:transform .5s ease}
-    .trade-panel .header{display:flex;align-items:center;margin-bottom:8px}
-    .trade-panel .icon-buy{background:var(--text-green);color:#fff;width:20px;height:20px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;margin-right:8px;border-radius:2px}
-    .trade-panel .symbol{font-size:14px;font-weight:600;margin-right:6px;color:#fff}
-    .trade-panel .tag{background:var(--secondary-bg);color:var(--text-secondary);font-size:10px;padding:1px 4px;margin-right:4px;text-transform:uppercase;border-radius:3px}
-    .trade-panel .exclamations{display:flex;margin-left:6px}
-    .trade-panel .exclamations span{position:relative;width:2px;height:10px;background:var(--secondary-bg);margin:0 1px;border-radius:1px;transition:background .3s ease}
-    .trade-panel .exclamations span::after{content:'';position:absolute;bottom:-3px;left:50%;transform:translateX(-50%);width:2px;height:2px;background:inherit;border-radius:50%}
-    .trade-panel .exclamations span.green,.trade-panel .exclamations span.green::after{background:var(--text-green)}
-    .trade-panel .share{margin-left:auto;color:#var(--text-secondary);font-size:16px;cursor:pointer}
+    /* ====== PROFITS CARD (6M Trend Trades design) ====== */
+    .trade-panel { background: var(--panel-bg); padding: 12px; border-radius: 8px; border: none; box-shadow: none; }
+    .trade-panel .header { display: flex; align-items: center; margin-bottom: 8px; }
+    .icon-buy, .icon-sell {
+      color: #fff; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 700; margin-right: 8px; border-radius: 2px;
+    }
+    .icon-buy { background: var(--text-green); }
+    .icon-sell { background: var(--text-red); }
+    .symbol { font-size: 14px; font-weight: 600; margin-right: 6px; color:#fff; }
+    .tag { background: var(--secondary-bg); color: var(--text-secondary); font-size: 10px; padding: 1px 4px; margin-right: 4px; text-transform: uppercase; border-radius: 3px; }
+    .exclamations { display: flex; margin-left: 6px; }
+    .exclamations span { position: relative; width: 2px; height: 10px; background: var(--secondary-bg); margin: 0 1px; border-radius: 1px; transition: background 0.3s ease; }
+    .exclamations span::after { content: ''; position: absolute; bottom: -3px; left: 50%; transform: translateX(-50%); width: 2px; height: 2px; background: inherit; border-radius: 50%; }
+    .exclamations span.green, .exclamations span.green::after { background: var(--text-green); }
+    .share { margin-left: auto; color: var(--text-secondary); font-size: 16px; cursor: pointer; }
 
-    .trade-panel .content-columns{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:8px;gap:8px}
-    .trade-panel .column{display:flex;flex-direction:column}
-    .trade-panel .column.right{text-align:right}
-    .trade-panel .stat{margin-bottom:8px}
-    .trade-panel .label{font-size:12px;color:var(--text-secondary);border-bottom:1px dotted var(--text-secondary);padding-bottom:2px;display:inline-block}
-    .trade-panel .label.no-line{border-bottom:none}
-    .trade-panel .value{font-size:14px;font-weight:400;color:#fff;transition:all .3s ease}
-    .trade-panel .value.green,.trade-panel .value.percent.green{color:var(--text-green);font-size:18px;font-weight:700}
-    .trade-panel .value.red,.trade-panel .value.percent.red{color:var(--text-red);font-size:18px;font-weight:700}
-    .trade-panel .margin-ratio-value{font-size:12px!important}
+    .content-columns { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 8px; gap: 8px; }
+    .column { display: flex; flex-direction: column; }
+    .column.right { text-align: right; }
+    .stat { margin-bottom: 8px; }
+    .label { font-size: 12px; color: var(--text-secondary); border-bottom: 1px dotted var(--text-secondary); padding-bottom: 2px; display: inline-block; }
+    .label.no-line { border-bottom: none; }
+    .value { font-size: 14px; font-weight: 400; color: #fff; transition: all 0.2s ease; }
+    .value.green, .value.percent.green { color: var(--text-green); font-size: 18px; font-weight: 700; }
+    .value.red, .value.percent.red { color: var(--text-red); font-size: 18px; font-weight: 700; }
+    .margin-ratio-value { font-size: 12px !important; }
 
-    .trade-panel .tp-actions{display:flex;justify-content:space-between;gap:8px;margin-top:2px}
-    .trade-panel .tp-btn{flex:1;background:var(--btn-bg);color:#fff;border:none;border-radius:6px;padding:6px 0;font-size:12px;cursor:pointer;transition:background .3s}
-    .trade-panel .tp-btn:hover{background:var(--secondary-bg)}
+    .tp-actions{display:flex;justify-content:space-between;gap:8px;margin-top:2px}
+    .tp-btn{flex:1;background:var(--btn-bg);color:#fff;border:none;border-radius:6px;padding:6px 0;font-size:12px;cursor:pointer;transition:background .3s}
+    .tp-btn:hover{background:var(--secondary-bg)}
 
     .bottom-nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:var(--app-w);background:#2A2F3A;display:flex;padding:8px 0}
     .bottom-nav button{flex:1;display:flex;flex-direction:column;align-items:center;font-size:10px;color:#A1A6B0}
@@ -186,6 +192,7 @@
       <button class="toggle-btn" role="tab" aria-selected="false">COIN-M</button>
     </div>
 
+    <!-- ===== Top Balances ===== -->
     <section class="balance-panel" aria-label="Balances">
       <div class="balance-header">
         <span>Margin Balance <i id="eyeToggle" class="fas fa-eye" aria-hidden="true"></i></span>
@@ -250,7 +257,7 @@
   </div>
 
   <script>
-    // ===== Segmented control thumb =====
+    /* ===== Segmented control ===== */
     (function(){
       const wrap = document.querySelector('.app .top-toggle');
       const btns  = [...wrap.querySelectorAll('.toggle-btn')];
@@ -263,384 +270,500 @@
       btns.forEach((b,i)=> b.addEventListener('click',()=>setActive(i)));
     })();
 
-    // ---------- Utilities ----------
+    /* ===== Top panel utils ===== */
     const fmtMoney = (n) =>
       "$" + Number(n).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-
-    // generic money with custom decimals (used for per-symbol PnL decimals)
-    const fmtMoneyWith = (n, dec) =>
-      "$" + Number(n).toLocaleString(undefined, { minimumFractionDigits: dec, maximumFractionDigits: dec });
-
     const fmtPct = (n) => (n >= 0 ? "+" : "") + n.toFixed(2) + "%";
 
-    // Default price precisions (will be overwritten by FUTURES exchangeInfo tick sizes)
-    const symbolPrecisions = {
-      BTCUSDT:2, ETHUSDT:2, BNBUSDT:2, ADAUSDT:4, SOLUSDT:3, XRPUSDT:4, DOTUSDT:3, LTCUSDT:2,
-      LINKUSDT:3, DOGEUSDT:5, UNIUSDT:3, BCHUSDT:2, XLMUSDT:5, ATOMUSDT:3, MATICUSDT:4, AVAXUSDT:3,
-      TRXUSDT:5, EOSUSDT:3, NEARUSDT:3, FILUSDT:3, OPUSDT:3, ARBUSDT:3, SUIUSDT:4, APTUSDT:3,
-      FTMUSDT:4, ICPUSDT:3, SHIBUSDT:8, PEPEUSDT:8, SEIUSDT:4, INJUSDT:3
-    };
-
-    // Profit decimal places per symbol (initially mirror price decimals; updated via exchangeInfo)
-    const profitPrecisions = { ...symbolPrecisions };
-
-    const maintRate = {
-      BTCUSDT:0.004, ETHUSDT:0.005, BNBUSDT:0.005, ADAUSDT:0.010, SOLUSDT:0.008, XRPUSDT:0.010, DOTUSDT:0.010,
-      LTCUSDT:0.010, LINKUSDT:0.010, DOGEUSDT:0.012, UNIUSDT:0.010, BCHUSDT:0.010, XLMUSDT:0.015, ATOMUSDT:0.010,
-      MATICUSDT:0.010, AVAXUSDT:0.010, TRXUSDT:0.020, EOSUSDT:0.015, NEARUSDT:0.020, FILUSDT:0.015,
-      OPUSDT:0.015, ARBUSDT:0.015, SUIUSDT:0.015, APTUSDT:0.015, FTMUSDT:0.020, ICPUSDT:0.015, SHIBUSDT:0.025,
-      PEPEUSDT:0.030, SEIUSDT:0.020, INJUSDT:0.015
-    };
-
-    const getP = (sym) => symbolPrecisions[sym] ?? 2;
-    const getPP = (sym) => profitPrecisions[sym] ?? getP(sym); // profit precision (per symbol)
-
-    // format number with symbol's price precision
-    const fSym = (sym, x) => {
-      const p = getP(sym);
-      const s = Number(x).toFixed(p);
-      const [i, d] = s.split(".");
-      const intFmt = i.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-      return (d !== undefined) ? `${intFmt}.${d}` : intFmt;
-    };
-
-    // format **mark price** to match **profit** decimals for that symbol (as requested)
-    const fProfitSym = (sym, x) => {
-      const p = getPP(sym);
-      const s = Number(x).toFixed(p);
-      const [i, d] = s.split(".");
-      const intFmt = i.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-      return (d !== undefined) ? `${intFmt}.${d}` : intFmt;
-    };
-
-    // ---------- Top panel refs ----------
     const amountEl = document.getElementById("amount");
     const walletEl = document.getElementById("walletValue");
     const unrealEl = document.getElementById("unrealizedValue");
-    const pnlEl = document.getElementById("pnl");
-    const eye = document.getElementById("eyeToggle");
     const realizedSpan = document.getElementById("realizedSpan");
+    const eye = document.getElementById("eyeToggle");
 
-    // Hard rules
-    const BAL_MIN = 65000, BAL_MAX = 125000;               // margin balance range
-    const REALIZED_MIN_PCT = 0.50, REALIZED_MAX_PCT = 2.00; // 0.5%–2%
+    // ==== RANDOM MARGIN BALANCE RANGE (Lakhs 3.5 – 5.0) ====
+    const BAL_MIN = 350000, BAL_MAX = 500000; // USD 350k–500k
+    const REALIZED_MIN_PCT = 0.50, REALIZED_MAX_PCT = 2.00;
 
-    // Runtime state
-    let show = true;
-    let marginBalanceTarget = 0; // chosen in range
+    let showTop = true;
+    let marginBalanceTarget = 0;
     let realizedTodayUSD = 0;
     let realizedTodayPct = 0;
-    let walletBalance = 0;
+    let walletBalance = 0;     // locked after init
     let unrealizedSum = 0;
 
-    // ---------- Trades / positions ----------
-    const feedDiv = document.getElementById("feed");
-    const TRADES = 24;
-    const trades = [];
+    function refreshTop(){
+      amountEl.textContent   = showTop ? fmtMoney(walletBalance + unrealizedSum) : "•••••••";
+      walletEl.textContent   = showTop ? fmtMoney(walletBalance) : "•••••••";
+      unrealEl.textContent   = showTop ? fmtMoney(unrealizedSum) : "•••••••";
+      realizedSpan.textContent = showTop ? `${fmtMoney(realizedTodayUSD)} (${fmtPct(realizedTodayPct)})` : "•••••••";
+    }
+    eye.addEventListener("click", ()=>{
+      showTop = !showTop;
+      eye.classList.toggle("fa-eye-slash", !showTop);
+      eye.classList.toggle("fa-eye", showTop);
+      refreshTop();
+    });
 
-    const makeBars = () => {
-      let html = "";
-      const totalBars = 4;
-      const greenBars = Math.floor(Math.random() * totalBars) + 1;
+    /* ===== Helpers ===== */
+    const numberWithCommas = (x) => String(x).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    const toFixedSafe = (n, dp) => {
+      const num = Number(n);
+      if (!Number.isFinite(num)) return (0).toFixed(dp);
+      const m = Math.pow(10, dp);
+      return (Math.round(num * m) / m).toFixed(dp);
+    };
+    const dpFromTick = (tickStr) => {
+      const idx = (tickStr || '').indexOf('.');
+      if (idx === -1) return 0;
+      return tickStr.length - idx - 1;
+    };
+    const quantizeToTick = (price, tickSize) => {
+      const step = parseFloat(tickSize);
+      if (!isFinite(price) || !isFinite(step) || step <= 0) return price;
+      return Math.round(price / step) * step;
+    };
+    const quantizeDownToStep = (qty, stepSize) => {
+      const step = parseFloat(stepSize);
+      if (!isFinite(qty) || !isFinite(step) || step <= 0) return qty;
+      return Math.floor(qty / step) * step;
+    };
+    function joinIntDec(i, d) {
+      const I = numberWithCommas(i);
+      return d !== undefined ? I + '.' + d : I;
+    }
+    function shuffle(arr) {
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    /* ===== Market meta (tick & step sizes) ===== */
+    const marketMeta = Object.create(null);
+    async function loadExchangeMeta() {
+      const url = 'https://fapi.binance.com/fapi/v1/exchangeInfo';
+      try{
+        const res = await fetch(url);
+        const json = await res.json();
+        if (!json || !Array.isArray(json.symbols)) return;
+
+        for (const s of json.symbols) {
+          const sym = s.symbol;
+          if (!seedSymbols.includes(sym)) continue;
+          let tickSize = '0.01';
+          let stepSize = '0.001';
+          let minQty = 0;
+
+          if (Array.isArray(s.filters)) {
+            for (const f of s.filters) {
+              if (f.filterType === 'PRICE_FILTER' && f.tickSize) tickSize = f.tickSize;
+              if ((f.filterType === 'LOT_SIZE' || f.filterType === 'MARKET_LOT_SIZE') && f.stepSize) stepSize = f.stepSize;
+              if ((f.filterType === 'LOT_SIZE' || f.filterType === 'MARKET_LOT_SIZE') && f.minQty) minQty = parseFloat(f.minQty) || 0;
+            }
+          }
+          marketMeta[sym] = {
+            tickSize,
+            stepSize,
+            minQty,
+            priceDp: dpFromTick(tickSize)
+          };
+        }
+      }catch(e){ /* ignore */ }
+    }
+    const getMeta = (sym) => marketMeta[sym] || { tickSize: '0.01', stepSize: '0.001', minQty: 0, priceDp: 2 };
+    function formatPrice(sym, x) {
+      const m = getMeta(sym);
+      const q = quantizeToTick(x, m.tickSize);
+      const s = toFixedSafe(q, m.priceDp);
+      const [i, d] = s.split('.');
+      return joinIntDec(i, d);
+    }
+    // PNL always 2dp
+    function formatProfit(_sym, x) {
+      const s = toFixedSafe(x, 2);
+      const [i, d] = s.split('.');
+      return joinIntDec(i, d);
+    }
+    function formatTwoDP(x) {
+      const s = toFixedSafe(x, 2);
+      const [i, d] = s.split('.');
+      return joinIntDec(i, d);
+    }
+
+    /* ===== Symbols (FTMUSDT REMOVED) + rates ===== */
+    const seedSymbols = [
+      'BTCUSDT','ETHUSDT','BNBUSDT','ADAUSDT','SOLUSDT','XRPUSDT','DOTUSDT','LTCUSDT',
+      'LINKUSDT','DOGEUSDT','AAVEUSDT','SUSHIUSDT','SHIBUSDT','COMPUSDT','ETCUSDT','ZECUSDT',
+      'XMRUSDT','LRCUSDT','QNTUSDT','CRVUSDT','UNIUSDT','BCHUSDT','XLMUSDT','ATOMUSDT',
+      'MATICUSDT','AVAXUSDT','TRXUSDT','EOSUSDT','NEARUSDT','FILUSDT',
+      'OPUSDT','ARBUSDT','APTUSDT','SUIUSDT','INJUSDT','RNDRUSDT','GALAUSDT',
+      'THETAUSDT','SANDUSDT','MANAUSDT','AXSUSDT','CFXUSDT','ICPUSDT','LDOUSDT','PEPEUSDT',
+      'FLOKIUSDT','WIFUSDT','ARKUSDT','IOTAUSDT','KASUSDT','PYTHUSDT','STRKUSDT','JUPUSDT',
+      'APEUSDT','BLURUSDT','SEIUSDT','TIAUSDT','TONUSDT','ONDOUSDT'
+    ];
+    const maintenanceMarginRates = {
+      BTCUSDT: 0.004, ETHUSDT: 0.005, BNBUSDT: 0.005, ADAUSDT: 0.010, SOLUSDT: 0.008, XRPUSDT: 0.010,
+      DOTUSDT: 0.010, LTCUSDT: 0.010, LINKUSDT: 0.010, DOGEUSDT: 0.012, AAVEUSDT: 0.010, SUSHIUSDT: 0.015,
+      SHIBUSDT: 0.020, COMPUSDT: 0.010, ETCUSDT: 0.010, ZECUSDT: 0.015, XMRUSDT: 0.020, LRCUSDT: 0.020,
+      QNTUSDT: 0.015, CRVUSDT: 0.020, UNIUSDT: 0.010, BCHUSDT: 0.010, XLMUSDT: 0.015, ATOMUSDT: 0.010,
+      MATICUSDT: 0.010, AVAXUSDT: 0.010, TRXUSDT: 0.020, EOSUSDT: 0.015, NEARUSDT: 0.020, FILUSDT: 0.015,
+      OPUSDT: 0.015, ARBUSDT: 0.020, APTUSDT: 0.015, SUIUSDT: 0.020, INJUSDT: 0.015, RNDRUSDT: 0.015,
+      GALAUSDT: 0.025, THETAUSDT: 0.020, SANDUSDT: 0.020, MANAUSDT: 0.020, AXSUSDT: 0.020,
+      CFXUSDT: 0.025, ICPUSDT: 0.015, LDOUSDT: 0.020, PEPEUSDT: 0.030, FLOKIUSDT: 0.030, WIFUSDT: 0.030,
+      ARKUSDT: 0.020, IOTAUSDT: 0.020, KASUSDT: 0.025, PYTHUSDT: 0.020, STRKUSDT: 0.020, JUPUSDT: 0.020,
+      APEUSDT: 0.020, BLURUSDT: 0.020, SEIUSDT: 0.020, TIAUSDT: 0.020, TONUSDT: 0.015, ONDOUSDT: 0.020
+    };
+    const getMaintRate = (sym) => maintenanceMarginRates[sym] ?? 0.01;
+
+    /* ===== Core calcs (Linear USDT Cross) ===== */
+    const qtyFrom = (marginUsed, leverage, entry) => (leverage * marginUsed) / entry;
+    const upnlLong  = (mark, entry, qty) => (mark - entry) * qty;
+    const upnlShort = (mark, entry, qty) => (entry - mark) * qty;
+    const roiPct = (pnl, usedMargin) => (pnl / usedMargin) * 100;
+    const maintenance = (mmr, mark, qty) => mmr * mark * qty;
+    const marginBalanceCalc = (effectiveMargin, uPnL) => effectiveMargin + uPnL;
+
+    function liqPriceLong(entry, leverage, mmr, marginUsed, effectiveMargin) {
+      const Q = (leverage * marginUsed) / entry;
+      const denom = Q * (1 - mmr);
+      const num = Q * entry - effectiveMargin;
+      if (denom <= 0) return null;
+      const P = num / denom;
+      if (!isFinite(P) || P <= 0) return null;
+      return P;
+    }
+    function liqPriceShort(entry, leverage, mmr, marginUsed, effectiveMargin) {
+      const Q = (leverage * marginUsed) / entry;
+      const denom = Q * (1 + mmr);
+      const num = effectiveMargin + Q * entry;
+      if (denom <= 0) return null;
+      const P = num / denom;
+      if (!isFinite(P) || P <= 0) return null;
+      return P;
+    }
+    const marginRatioPct = (maint, mBal) => (mBal <= 0 ? 100 : (maint / mBal) * 100);
+
+    /* ===== UI helpers ===== */
+    const feedDiv = document.getElementById('feed');
+    function meterBars () {
+      const totalBars = 4; const greenBars = Math.floor(Math.random() * totalBars) + 1;
+      let html = '';
       for (let j = 0; j < totalBars; j++) html += `<span class="${j < greenBars ? 'green' : ''}"></span>`;
       return html;
-    };
+    }
 
-    function makePanel(sym, lev, margin, entry, mark, qty, mmr) {
-      const panel = document.createElement("div");
-      panel.className = "trade-panel";
+    function createPanel({ sym, leverage, entry, mark, usedMargin, effMargin, mmr, qty, notionalUSDT, side }) {
+      const pnl = side === 'LONG' ? upnlLong(mark, entry, qty) : upnlShort(mark, entry, qty);
+      const roi = roiPct(pnl, usedMargin);
+      const maint = maintenance(mmr, mark, qty);
+      const mBal = marginBalanceCalc(effMargin, pnl);
+      const mRatio = marginRatioPct(maint, mBal);
+      const liq = side === 'LONG'
+        ? liqPriceLong(entry, leverage, mmr, usedMargin, effMargin)
+        : liqPriceShort(entry, leverage, mmr, usedMargin, effMargin);
+
+      const sideIcon = side === 'LONG' ? `<span class="icon-buy">B</span>` : `<span class="icon-sell">S</span>`;
+
+      const panel = document.createElement('div');
+      panel.className = 'trade-panel';
       panel.innerHTML = `
         <div class="header">
-          <span class="icon-buy">B</span>
+          ${sideIcon}
           <span class="symbol">${sym}</span>
           <span class="tag">PERP</span>
-          <span class="tag">Cross ${lev}×</span>
-          <span class="exclamations">${makeBars()}</span>
+          <span class="tag">Cross ${leverage}×</span>
+          <span class="exclamations">${meterBars()}</span>
           <i class="fas fa-share-nodes share"></i>
         </div>
-
         <div class="content-columns">
           <div class="column">
             <div class="stat">
               <div class="label">PNL (USDT)</div>
-              <div class="value green" data-role="pnl">$0.00</div>
+              <div class="value pnl ${pnl < 0 ? 'red' : 'green'}">${formatProfit(sym, pnl)}</div>
             </div>
             <div class="stat">
               <div class="label">Size (USDT)</div>
-              <div class="value" data-role="size">$0.00</div>
+              <div class="value size">${formatTwoDP(notionalUSDT)}</div>
             </div>
             <div class="stat">
               <div class="label">Entry Price (USDT)</div>
-              <div class="value" data-role="entry">${fSym(sym, entry)}</div>
+              <div class="value entry">${formatPrice(sym, entry)}</div>
             </div>
           </div>
-
           <div class="column center">
             <div class="stat">
               <div class="label no-line">Margin (USDT)</div>
-              <div class="value" data-role="margin">${fmtMoney(margin)}</div>
+              <div class="value margin">${formatTwoDP(usedMargin)}</div>
             </div>
             <div class="stat">
               <div class="label no-line">Mark Price (USDT)</div>
-              <div class="value" data-role="mark">${fProfitSym(sym, mark)}</div>
+              <div class="value mark">${formatPrice(sym, mark)}</div>
             </div>
           </div>
-
           <div class="column right">
             <div class="stat">
               <div class="label">ROI</div>
-              <div class="value percent green" data-role="roi">+0.00%</div>
+              <div class="value percent roi ${roi < 0 ? 'red' : 'green'}">${(roi >= 0 ? '+' : '') + toFixedSafe(roi, 2)}%</div>
             </div>
             <div class="stat margin-ratio">
               <div class="label">Margin Ratio</div>
-              <div class="value percent margin-ratio-value green" data-role="mratio">0.00%</div>
+              <div class="value percent margin-ratio-value ${mRatio >= 80 ? 'red' : 'green'}">${toFixedSafe(mRatio, 2)}%</div>
             </div>
             <div class="stat">
               <div class="label no-line">Liq. Price (USDT)</div>
-              <div class="value" data-role="liq">${fSym(sym, entry * (1 - 1/lev + mmr))}</div>
+              <div class="value liq">${liq === null ? '—' : formatPrice(sym, liq)}</div>
             </div>
           </div>
         </div>
-
         <div class="tp-actions">
           <button class="tp-btn">Leverage</button>
           <button class="tp-btn">TP/SL</button>
           <button class="tp-btn">Close</button>
           <button class="tp-btn">Reverse</button>
-        </div>
-      `;
-      feedDiv.appendChild(panel);
-      return { el: panel, sym, lev, margin, entry, mark, qty, mmr };
+        </div>`;
+      return { node: panel, sym, leverage, mmr, entry, usedMargin, effMargin, qty, mark, side };
     }
 
-    function recalcTrade(t) {
-      // USDT-M Long PnL
-      const pnl = (t.mark - t.entry) * t.qty;
-      const roi = (pnl / t.margin) * 100;
+    function renderTrade(t) {
+      const pnl = (t.side === 'LONG') ? upnlLong(t.mark, t.entry, t.qty) : upnlShort(t.mark, t.entry, t.qty);
+      const roi = roiPct(pnl, t.usedMargin);
+      const maintV = maintenance(t.mmr, t.mark, t.qty);
+      const mBal = marginBalanceCalc(t.effMargin, pnl);
+      const mRatio = marginRatioPct(maintV, mBal);
+      const liq = (t.side === 'LONG')
+        ? liqPriceLong(t.entry, t.leverage, t.mmr, t.usedMargin, t.effMargin)
+        : liqPriceShort(t.entry, t.leverage, t.mmr, t.usedMargin, t.effMargin);
 
-      const sizeUSDT = Math.abs(t.qty * t.mark);
-      const notional = Math.abs(t.qty * t.entry);
-      const maintenance = notional * t.mmr;
-      const equity = t.margin + pnl;
-      const mratio = Math.max(0, (maintenance / Math.max(0.01, equity)) * 100);
+      const pnlEl = t.node.querySelector('.value.pnl');
+      pnlEl.textContent = formatProfit(t.sym, pnl);
+      pnlEl.classList.toggle('green', pnl >= 0);
+      pnlEl.classList.toggle('red', pnl < 0);
 
-      const e = (sel) => t.el.querySelector(sel);
+      t.node.querySelector('.value.mark').textContent = formatPrice(t.sym, t.mark);
 
-      // === KEY CHANGE: PnL uses per-symbol profit decimals; Mark Price matches profit decimals ===
-      e('[data-role="pnl"]').textContent = fmtMoneyWith(pnl, getPP(t.sym));
-      e('[data-role="pnl"]').classList.toggle('green', pnl >= 0);
-      e('[data-role="pnl"]').classList.toggle('red', pnl < 0);
+      const roiEl = t.node.querySelector('.value.roi');
+      roiEl.textContent = (roi >= 0 ? '+' : '') + toFixedSafe(roi, 2) + '%';
+      roiEl.classList.toggle('green', roi >= 0);
+      roiEl.classList.toggle('red', roi < 0);
 
-      e('[data-role="roi"]').textContent = fmtPct(roi);
-      e('[data-role="roi"]').classList.toggle('green', roi >= 0);
-      e('[data-role="roi"]').classList.toggle('red', roi < 0);
+      const mrEl = t.node.querySelector('.value.margin-ratio-value');
+      mrEl.textContent = toFixedSafe(mRatio, 2) + '%';
+      mrEl.classList.toggle('green', mRatio < 80);
+      mrEl.classList.toggle('red', mRatio >= 80);
 
-      e('[data-role="size"]').textContent = fmtMoney(sizeUSDT); // size in USDT (keep 2dp for fiat)
-      e('[data-role="mark"]').textContent = fProfitSym(t.sym, t.mark);
-
-      e('[data-role="mratio"]').textContent = mratio.toFixed(2) + "%";
-      e('[data-role="mratio"]').classList.toggle('green', mratio < 80);
-      e('[data-role="mratio"]').classList.toggle('red', mratio >= 80);
-
-      e('[data-role="liq"]').textContent = fSym(t.sym, t.entry * (1 - 1/t.lev + t.mmr));
-
-      return pnl;
+      const liqEl = t.node.querySelector('.value.liq');
+      liqEl.textContent = (liq === null) ? '—' : formatPrice(t.sym, liq);
     }
 
-    function refreshTop() {
-      amountEl.textContent   = show ? fmtMoney(walletBalance + unrealizedSum) : "•••••••";
-      walletEl.textContent   = show ? fmtMoney(walletBalance) : "•••••••";
-      // Top-line Unrealized PNL kept with 2dp (overall account figure)
-      unrealEl.textContent   = show ? fmtMoney(unrealizedSum) : "•••••••";
-      realizedSpan.textContent = show ? `${fmtMoney(realizedTodayUSD)} (${fmtPct(realizedTodayPct)})` : "•••••••";
+    /* ===== 6M Entry helpers ===== */
+    function sixMonthsAgoMs() {
+      const d = new Date();
+      d.setMonth(d.getMonth() - 6);
+      d.setHours(0, 0, 0, 0);
+      return d.getTime();
     }
-
-    eye.addEventListener("click", () => {
-      show = !show;
-      eye.classList.toggle("fa-eye-slash", !show);
-      eye.classList.toggle("fa-eye", show);
-      refreshTop();
-    });
-
-    async function fetchJSON(url, fallback) {
+    async function fetchSixMonthMarkClose(sym, startMs) {
+      // markPriceKlines first
       try {
-        const r = await fetch(url);
-        if (!r.ok) throw new Error("HTTP "+r.status);
-        return await r.json();
-      } catch {
-        return fallback;
-      }
-    }
-
-    function uniq(arr){ return [...new Set(arr)]; }
-
-    // ---- Binance WS (Futures mark price) ----
-    let wsList = [];
-    function openMarkPriceWS(symbols) {
-      closeMarkPriceWS();
-
-      const chunks = [];
-      const lower = symbols.map(s => s.toLowerCase());
-      // chunk streams to avoid very long URLs (safety)
-      while (lower.length) chunks.push(lower.splice(0, 30));
-
-      chunks.forEach(chunk => {
-        const streams = chunk.map(s => `${s}@markPrice@1s`).join('/');
-        const url = `wss://fstream.binance.com/stream?streams=${streams}`;
-        const ws = new WebSocket(url);
-
-        ws.onmessage = (ev) => {
-          try{
-            const msg = JSON.parse(ev.data);
-            const data = msg.data || msg; // combined stream has {stream,data}
-            const sym = (data.s || "").toUpperCase();
-            const mark = parseFloat(data.p); // mark price
-            if (!sym || !isFinite(mark)) return;
-
-            let changed = false;
-            for (const t of trades) {
-              if (t.sym === sym) {
-                t.mark = mark;
-                changed = true;
-                recalcTrade(t);
-              }
-            }
-            if (changed) {
-              // recompute total unrealized just-in-time
-              let sum = 0;
-              for (const t of trades) sum += (t.mark - t.entry) * t.qty;
-              unrealizedSum = sum;
-              refreshTop();
-            }
-          }catch(e){/* noop */}
-        };
-        ws.onerror = () => {/* allow fallback poll to kick in if closed */};
-        ws.onclose  = () => {/* noop; fallback timer handles gaps */};
-        wsList.push(ws);
-      });
-    }
-    function closeMarkPriceWS(){
-      wsList.forEach(w => { try{ w.close(); }catch{} });
-      wsList = [];
-    }
-
-    // ---- Fallback polling (1s) if WS not connected ----
-    let pollTimer = null;
-    function startFallbackPolling(symbols){
-      if (pollTimer) clearInterval(pollTimer);
-      pollTimer = setInterval(async () => {
-        try{
-          const url = `https://fapi.binance.com/fapi/v1/premiumIndex?symbol=`;
-          // poll each to stay close to real-time; still light because we cap symbols
-          for (const s of symbols) {
-            const j = await fetchJSON(url + encodeURIComponent(s), null);
-            const mark = j ? parseFloat(j.markPrice) : NaN;
-            if (!isFinite(mark)) continue;
-            for (const t of trades) {
-              if (t.sym === s) {
-                t.mark = mark;
-                recalcTrade(t);
-              }
-            }
+        const url1 = `https://fapi.binance.com/fapi/v1/markPriceKlines?symbol=${sym}&interval=1d&startTime=${startMs - 2*24*3600*1000}&limit=2`;
+        const res1 = await fetch(url1);
+        if (res1.ok) {
+          const data = await res1.json();
+          if (Array.isArray(data) && data.length > 0) {
+            const k = data[0]; const close = parseFloat(k[4]);
+            if (isFinite(close)) return close;
           }
-          let sum = 0;
-          for (const t of trades) sum += (t.mark - t.entry) * t.qty;
-          unrealizedSum = sum;
-          refreshTop();
-        }catch(e){/* ignore */ }
-      }, 1000);
+        }
+      } catch {}
+      // Fallback continuous PERPETUAL
+      try {
+        const url2 = `https://fapi.binance.com/fapi/v1/continuousKlines?pair=${sym}&contractType=PERPETUAL&interval=1d&startTime=${startMs - 2*24*3600*1000}&limit=2`;
+        const res2 = await fetch(url2);
+        if (res2.ok) {
+          const data = await res2.json();
+          if (Array.isArray(data) && data.length > 0) {
+            const k = data[0]; const close = parseFloat(k[4]);
+            if (isFinite(close)) return close;
+          }
+        }
+      } catch {}
+      // Last resort spot klines
+      try {
+        const url3 = `https://fapi.binance.com/fapi/v1/klines?symbol=${sym}&interval=1d&startTime=${startMs - 2*24*3600*1000}&limit=2`;
+        const res3 = await fetch(url3);
+        if (res3.ok) {
+          const data = await res3.json();
+          if (Array.isArray(data) && data.length > 0) {
+            const k = data[0]; const close = parseFloat(k[4]);
+            if (isFinite(close)) return close;
+          }
+        }
+      } catch {}
+      return null;
+    }
+    async function loadSixMonthEntryMap(symbolList) {
+      const start = sixMonthsAgoMs();
+      const entryMap = Object.create(null);
+      const unique = [...new Set(symbolList)];
+      const batch = 8;
+      for (let i = 0; i < unique.length; i += batch) {
+        const chunk = unique.slice(i, i + batch);
+        await Promise.all(chunk.map(async (sym) => {
+          const close = await fetchSixMonthMarkClose(sym, start);
+          if (isFinite(close)) entryMap[sym] = close;
+        }));
+      }
+      return entryMap;
     }
 
-    // Detect WS health; if all sockets die, use fallback; when page hides, close WS
-    window.addEventListener('beforeunload', closeMarkPriceWS);
+    /* ===== Live init + WS updates ===== */
+    const trades = [];
+    let symbols = shuffle(seedSymbols.slice());
+    const tradeCount = 40;
 
-    // ---------- Init ----------
-    async function initTrades() {
-      // 1) Pick a Margin Balance target in your required range
-      marginBalanceTarget = Math.round(((BAL_MIN + Math.random()*(BAL_MAX - BAL_MIN)) + Number.EPSILON) * 100) / 100;
+    // NEW: constrain per-trade margin to $50–$300
+    const TRADE_MARGIN_MIN = 50;
+    const TRADE_MARGIN_MAX = 300;
 
-      // 2) Spot prices just to seed entry/mark
-      const prices = await fetchJSON(
-        "https://api.binance.com/api/v3/ticker/price",
-        [ {symbol:"BTCUSDT",price:"65000"}, {symbol:"ETHUSDT",price:"3000"} ]
-      );
-      const priceMap = Object.fromEntries(prices.map(d => [d.symbol, parseFloat(d.price)]));
+    function shuffleFeed(){
+      const nodes = Array.from(feedDiv.children);
+      shuffle(nodes).forEach(n => feedDiv.appendChild(n));
+    }
 
-      // 3) FUTURES precisions from fapi exchangeInfo (mirror real decimals)
-      const baseSyms = Object.keys(symbolPrecisions);
-      const wanted = JSON.stringify(baseSyms);
-      const ex = await fetchJSON("https://fapi.binance.com/fapi/v1/exchangeInfo?symbols=" + encodeURIComponent(wanted), {symbols:[]});
-      if (ex && Array.isArray(ex.symbols)) {
-        ex.symbols.forEach(s => {
-          const pf = (s.filters || []).find(f => f.filterType === "PRICE_FILTER");
-          if (pf && typeof pf.tickSize === "string") {
-            const dec = pf.tickSize.includes(".")
-              ? pf.tickSize.split(".")[1].replace(/0+$/,"").length
-              : 0;
-            // Price precision for entry/liq
-            symbolPrecisions[s.symbol] = Math.max(dec, 0);
-            // === KEY CHANGE: profit decimals per symbol align to Binance tick decimals ===
-            profitPrecisions[s.symbol] = Math.max(dec, 0);
-          }
-        });
-      }
-
-      // Clear empty state
+    async function seedWithFuturesMark6M() {
+      // Remove empty state
       const empty = document.getElementById("emptyState");
       if (empty) empty.remove();
 
-      // 4) Build trades
-      const pick = Object.keys(symbolPrecisions);
-      const leverages = [10,20,50,100];
-      const usedSymbols = [];
+      await loadExchangeMeta();
+      symbols = symbols.filter(s => !!marketMeta[s]);
 
-      for (let i = 0; i < TRADES; i++) {
-        const sym = pick[i % pick.length];
-        const live = priceMap[sym];
-        if (!live || isNaN(live)) continue;
+      // live marks snapshot
+      const res = await fetch('https://fapi.binance.com/fapi/v1/premiumIndex');
+      const arr = await res.json();
+      const markMap = Object.create(null);
+      arr.forEach(o => { if (o && o.symbol) markMap[o.symbol] = parseFloat(o.markPrice); });
 
-        const lev = leverages[Math.floor(Math.random() * leverages.length)];
-        const margin = Math.random() * (1000 - 50) + 50;
+      const plannedSyms = [];
+      for (let i = 0; i < tradeCount; i++) plannedSyms.push(symbols[i % symbols.length]);
+      const entryMap = await loadSixMonthEntryMap(plannedSyms);
 
-        const entry = live * 0.94;
-        const mark  = live * 0.98;
+      for (let i = 0; i < tradeCount; i++) {
+        const sym = symbols[i % symbols.length];
+        const liveMark = markMap[sym];
+        if (!isFinite(liveMark)) continue;
 
-        const qty = (margin * lev) / entry;
-        const mmr = maintRate[sym] ?? 0.01;
+        const sixMEntryRaw = entryMap[sym];
+        if (!isFinite(sixMEntryRaw)) continue;
 
-        const t = makePanel(sym, lev, margin, entry, mark, qty, mmr);
-        trades.push(t);
-        usedSymbols.push(sym);
+        const leverage = [10,20,50,100][Math.floor(Math.random()*4)];
+        const entry = quantizeToTick(sixMEntryRaw, getMeta(sym).tickSize);
+        const side = (liveMark >= entry) ? 'LONG' : 'SHORT';
+
+        // ***** Margin range $50–$300 *****
+        const usedMargin = Math.round((TRADE_MARGIN_MIN + Math.random()*(TRADE_MARGIN_MAX - TRADE_MARGIN_MIN)) * 100) / 100;
+
+        const m = getMeta(sym);
+        let qtyRaw = qtyFrom(usedMargin, leverage, entry);
+        let qty = quantizeDownToStep(qtyRaw, m.stepSize);
+        if (qty < m.minQty) qty = m.minQty;
+
+        const notionalUSDT = entry * qty;
+        const effMargin = usedMargin * (1.5 + Math.random() * 2.5);
+        const mmr = getMaintRate(sym);
+
+        const panelState = createPanel({
+          sym, leverage, entry, mark: liveMark, usedMargin, effMargin, mmr,
+          qty, notionalUSDT, side
+        });
+        trades.push(panelState);
+        feedDiv.appendChild(panelState.node);
       }
+      // Shuffle DOM order once all cards appended
+      shuffleFeed();
+    }
 
-      // 5) Compute initial unrealized PNL (exact sum of position pnls)
-      unrealizedSum = 0;
-      trades.forEach(t => unrealizedSum += recalcTrade(t));
+    function recalcAccountTop(){
+      // Sum UPNL across all trades
+      let sum = 0;
+      for (const t of trades) {
+        sum += (t.side === 'LONG') ? upnlLong(t.mark, t.entry, t.qty)
+                                   : upnlShort(t.mark, t.entry, t.qty);
+      }
+      unrealizedSum = sum;
+      refreshTop();
+    }
 
-      // 6) Choose wallet so Margin Balance hits target initially
-      walletBalance = marginBalanceTarget - unrealizedSum;
+    function connectFuturesMarkWS() {
+      const WS_URL = 'wss://fstream.binance.com/ws/!markPrice@arr';
+      let ws = new WebSocket(WS_URL);
 
-      // 7) Realized PNL must be 0.50%–2.00% of marginBalanceTarget
+      ws.onopen = () => console.log('[WS] Connected');
+
+      ws.onmessage = (evt) => {
+        let data;
+        try { data = JSON.parse(evt.data); } catch { return; }
+        if (!Array.isArray(data)) return;
+
+        let touched = false;
+        for (const o of data) {
+          const sym = o.s;
+          const priceStr = o.p;
+          if (!sym || priceStr === undefined) continue;
+          const mp = parseFloat(priceStr);
+          if (!isFinite(mp)) continue;
+
+          for (const t of trades) {
+            if (t.sym === sym) {
+              t.mark = mp;               // live mark at Binance speed
+              renderTrade(t);            // redraw card
+              touched = true;
+            }
+          }
+        }
+        if (touched) recalcAccountTop();
+      };
+
+      ws.onclose = () => {
+        console.warn('[WS] Closed. Reconnecting in 2s…');
+        setTimeout(connectFuturesMarkWS, 2000);
+      };
+      ws.onerror = (err) => {
+        console.error('[WS] Error', err);
+        try { ws.close(); } catch {}
+      };
+    }
+
+    (async function init(){
+      // Pick Margin Balance target (random in 350k–500k) & realized PNL rule (0.5%–2.0%)
+      marginBalanceTarget = Math.round(((BAL_MIN + Math.random()*(BAL_MAX - BAL_MIN)) + Number.EPSILON) * 100) / 100;
       realizedTodayPct = REALIZED_MIN_PCT + Math.random()*(REALIZED_MAX_PCT - REALIZED_MIN_PCT);
       realizedTodayUSD = marginBalanceTarget * (realizedTodayPct/100);
 
+      // Seed profit cards + meta
+      await seedWithFuturesMark6M();
+
+      // Compute initial unrealized, then set wallet to hit target margin balance (wallet locked after)
+      let initialUnreal = 0;
+      for (const t of trades) {
+        initialUnreal += (t.side === 'LONG') ? upnlLong(t.mark, t.entry, t.qty)
+                                             : upnlShort(t.mark, t.entry, t.qty);
+      }
+      unrealizedSum = initialUnreal;
+      walletBalance = marginBalanceTarget - unrealizedSum; // lock wallet
       refreshTop();
 
-      // 8) Open live WS so mark price speed == Binance push speed
-      const uniqSyms = uniq(usedSymbols);
-      openMarkPriceWS(uniqSyms);
-
-      // 9) Start fallback polling in case WS is blocked
-      startFallbackPolling(uniqSyms);
-    }
+      // Live updates
+      connectFuturesMarkWS();
+    })();
 
     // Seed placeholders
     amountEl.textContent = "Loading…";
     walletEl.textContent = "Loading…";
     unrealEl.textContent = "Loading…";
     realizedSpan.textContent = "Loading…";
-
-    initTrades();
   </script>
 </body>
 </html>
