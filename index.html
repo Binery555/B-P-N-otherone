@@ -123,14 +123,23 @@
     .sub-toggle .toggle-btn::after{ display:none !important; }
     .sub-toggle .toggle-btn.active{background:#323742;color:#FFF}
 
-    /* (Removed the 6M/7M entry-horizon UI) */
-
     /* ===== Other panels ===== */
     .balance-panel{margin:12px 0}
     .balance-header{display:flex;justify-content:space-between;align-items:center;color:#A1A6B0;font-size:12px}
     .balance-header span{display:flex;align-items:center;gap:6px}
-    .balance-header i{cursor:pointer;font-size:12px}
+
+    /* ↓↓↓ Upload slots (no frame) — smaller size ↓↓↓ */
     .icon-group{display:inline-flex;gap:10px;font-size:13px;color:#E1E3E8}
+    .upload-slot{
+      position:relative; width:14px; height:14px; display:inline-block;
+      line-height:0;
+    }
+    .upload-slot input{ position:absolute; inset:0; opacity:0; cursor:pointer; }
+    .upload-slot img{
+      width:100%; height:100%; object-fit:cover; display:block; border:none; border-radius:0; background:transparent;
+    }
+    /* ↑↑↑ end upload slot styles ↑↑↑ */
+
     .balance-amount{display:flex;align-items:flex-end;margin:8px 0}
     .amount{font-size:28px;font-weight:600}
     .currency{margin-left:8px;color:#A1A6B0;font-size:12px}
@@ -217,6 +226,7 @@
     .tp-btn{flex:1;background:var(--btn-bg);color:#fff;border:none;border-radius:6px;padding:6px 0;font-size:12px;cursor:pointer;transition:background .3s}
     .tp-btn:hover{background:var(--secondary-bg)}
 
+    /* ===== Bottom nav (replace icons with uploads, no frame) ===== */
     .bottom-nav{
       position:fixed;bottom:0;left:50%;transform:translateX(-50%);
       width:var(--app-w);background:#2A2F3A;display:flex;padding:8px 0;
@@ -224,7 +234,11 @@
     }
     .bottom-nav button{flex:1;display:flex;flex-direction:column;align-items:center;font-size:10px;color:#A1A6B0}
     .bottom-nav button.active{color:#FFF}
-    .bottom-nav i{margin-bottom:4px;font-size:16px}
+    .nav-upload{
+      width:18px;height:18px;object-fit:cover;display:block;border:none;border-radius:0;background:transparent;margin-bottom:4px;
+    }
+    .nav-slot{ position:relative; display:flex; flex-direction:column; align-items:center; }
+    .nav-slot input{ position:absolute; inset:0 0 calc(100% - 24px) 0; opacity:0; cursor:pointer; } /* click on image area only */
   </style>
 </head>
 <body>
@@ -249,7 +263,6 @@
         <button class="toggle-btn active" role="tab" aria-selected="true">USDⓢ-M</button>
         <button class="toggle-btn" role="tab" aria-selected="false">COIN-M</button>
       </div>
-      <!-- (Removed the 6M/7M Entry horizon toggle and its caption) -->
     </div>
     <!-- ===== /UPPER (fixed) ===== -->
 
@@ -257,11 +270,23 @@
     <section class="balance-panel" aria-label="Balances">
       <div class="balance-header">
         <span>Margin Balance <i id="eyeToggle" class="fas fa-eye" aria-hidden="true"></i></span>
+
+        <!-- ▼▼ Replaced icon-group icons with JPG upload slots (no frames, smaller) ▼▼ -->
         <span class="icon-group" aria-label="Actions">
-          <i class="fas fa-gift" title="Rewards"></i>
-          <i class="fas fa-right-left" title="Convert"></i>
-          <i class="fas fa-file-invoice" title="Statements"></i>
+          <label class="upload-slot" title="Upload JPG">
+            <input type="file" accept="image/jpeg" data-target="hdr1">
+            <img id="hdr1" alt="" src="https://iili.io/K2Mnzqx.jpg">
+          </label>
+          <label class="upload-slot" title="Upload JPG">
+            <input type="file" accept="image/jpeg" data-target="hdr2">
+            <img id="hdr2" alt="" src="https://iili.io/K2Mxfou.jpg">
+          </label>
+          <label class="upload-slot" title="Upload JPG">
+            <input type="file" accept="image/jpeg" data-target="hdr3">
+            <img id="hdr3" alt="" src="https://iili.io/K2MzAdl.jpg">
+          </label>
         </span>
+        <!-- ▲▲ end upload slots ▲▲ -->
       </div>
 
       <div class="balance-amount">
@@ -310,13 +335,35 @@
       </div>
     </section>
 
+    <!-- ▼▼ Bottom navigation with JPG upload icons (no frames, smaller) ▼▼ -->
     <nav class="bottom-nav" aria-label="Bottom navigation" id="bottomNav">
-      <button><i class="fas fa-home"></i><span>Home</span></button>
-      <button><i class="fas fa-chart-bar"></i><span>Markets</span></button>
-      <button><i class="fas fa-exchange-alt"></i><span>Trade</span></button>
-      <button><i class="fas fa-chart-line"></i><span>Futures</span></button>
-      <button class="active"><i class="fas fa-wallet"></i><span>Assets</span></button>
+      <button class="nav-slot">
+        <input type="file" accept="image/jpeg" data-target="nav1">
+        <img id="nav1" class="nav-upload" alt="" src="https://iili.io/K2MQNN1.jpg">
+        <span>Home</span>
+      </button>
+      <button class="nav-slot">
+        <input type="file" accept="image/jpeg" data-target="nav2">
+        <img id="nav2" class="nav-upload" alt="" src="https://iili.io/K2V1nee.th.jpg">
+        <span>Markets</span>
+      </button>
+      <button class="nav-slot">
+        <input type="file" accept="image/jpeg" data-target="nav3">
+        <img id="nav3" class="nav-upload" alt="" src="https://iili.io/K2V1Opn.th.jpg">
+        <span>Trade</span>
+      </button>
+      <button class="nav-slot">
+        <input type="file" accept="image/jpeg" data-target="nav4">
+        <img id="nav4" class="nav-upload" alt="" src="https://iili.io/K2VMPYN.th.jpg">
+        <span>Futures</span>
+      </button>
+      <button class="nav-slot active">
+        <input type="file" accept="image/jpeg" data-target="nav5">
+        <img id="nav5" class="nav-upload" alt="" src="https://iili.io/K2VVVwX.th.jpg">
+        <span>Assets</span>
+      </button>
     </nav>
+    <!-- ▲▲ end bottom nav ▲▲ -->
   </div>
 
   <script>
@@ -332,6 +379,24 @@
       setActive(0);
       btns.forEach((b,i)=> b.addEventListener('click',()=>setActive(i)));
     })();
+
+    /* ===== Simple JPG preview binder (no frames) ===== */
+    function bindJpgUploads(){
+      const inputs = document.querySelectorAll('input[type="file"][accept="image/jpeg"][data-target]');
+      inputs.forEach(inp=>{
+        inp.addEventListener('change', ()=>{
+          const id = inp.getAttribute('data-target');
+          const img = document.getElementById(id);
+          if(!img || !inp.files || !inp.files[0]) return;
+          const file = inp.files[0];
+          if(file && file.type === 'image/jpeg'){
+            const url = URL.createObjectURL(file);
+            img.src = url;
+          }
+        });
+      });
+    }
+    document.addEventListener('DOMContentLoaded', bindJpgUploads);
 
     /* ===== Fixed entry horizon: 6 months (±5 days each refresh) ===== */
     const horizonMonths = 6; // fixed 6M
@@ -440,7 +505,7 @@
 
         for (const s of json.symbols) {
           const sym = s.symbol;
-          if (!allSymbols.includes(sym)) continue;
+          if ( !allSymbols.includes(sym) ) continue;
           let tickSize = '0.01';
           let stepSize = '0.001';
           let minQty = 0;
@@ -660,7 +725,6 @@
       return d.getTime();
     }
     async function fetchAnchorClose(sym, startMs) {
-      // Try markPriceKlines, then continuousKlines, then klines
       try {
         const url1 = `https://fapi.binance.com/fapi/v1/markPriceKlines?symbol=${sym}&interval=1d&startTime=${startMs}&limit=1`;
         const r1 = await fetch(url1);
@@ -854,13 +918,9 @@
     }
 
     async function rebuildTrades(){
-      // Clear existing cards
       for (const t of trades) { try { t.node.remove(); } catch{} }
       trades.length = 0;
-
-      // New offset ±5d each rebuild (kept for consistency)
       ENTRY_OFFSET_DAYS = (Math.floor(Math.random()*11) - 5);
-
       await buildTradesForHorizon(horizonMonths);
       forceTwoSmallLossesRandom();
       recalcAccountTop();
@@ -869,7 +929,6 @@
     (async function init(){
       sizeFeed();
 
-      // Stable margin across refresh (saved)
       const BAL_MIN = 350000, BAL_MAX = 500000;
       const REALIZED_MIN_PCT = 0.50, REALIZED_MAX_PCT = 2.00;
 
